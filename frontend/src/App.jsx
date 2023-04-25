@@ -5,7 +5,7 @@ import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Main from "./pages/Main";
+import Pokemain from "./pages/Pokemain";
 import About from "./pages/About";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="main" element={<Main />} />
+          <Route path="pokemain" element={<Pokemain />} />
           <Route path="about" element={<About />} />
         </Routes>
       </div>
