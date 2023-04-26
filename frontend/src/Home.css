@@ -1,51 +1,6 @@
-.bg-color {
-  background-color: #000;
-  height: 100dvh;
-  width: 100dvw;
-}
-.main-title {
-  background-image: linear-gradient(to right, #3424e4, #6418ce, #8e52c0);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.container {
-  width: 100%;
-  background: #000;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border: 6px solid blue;
-}
-
-.text-container {
-  font-size: 1.3rem;
-  line-height: 2.5rem;
-  padding: 10px;
-  margin: 0 auto;
-  border: 5px solid red;
-  width: 50dvw;
-  display: flex;
-  flex-direction: column;
-}
-.img-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border: 5px solid purple;
-  margin-top: 40px;
-}
-.logo {
-  margin-top: 5px;
-  width: 10dvw;
-}
-.auto-generated-text {
-  color: #fff;
-}
-
 .fleche {
-  width: 5%;
+  background-color: #fff;
+  width: 25%;
   animation: MoveUpDown 2s linear infinite;
 }
 

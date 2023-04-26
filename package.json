@@ -30,7 +30,8 @@
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.3",
-    "postcss": "^8.4.23"
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
   },
   "dependencies": {
     "primeflex": "^3.3.0",

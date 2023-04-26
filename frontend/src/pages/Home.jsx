@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import text from "./auto-text.json";
 import logolight from "../assets/LogoLight.png";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-const ModalHome = () => {
+import arrow from "../assets/arrow.svg";
+
+function ModalHome() {
   const [generatedText, setGeneratedText] = useState("");
   const [generatedCta, setGeneratedCta] = useState("");
   const [firstIntervalDone, setFirstIntervalDone] = useState(false);
@@ -16,7 +17,7 @@ const ModalHome = () => {
       setGeneratedText(
         (prevText) => prevText + description.charAt(prevText.length)
       );
-    }, 15);
+    }, 30);
     if (generatedText.length === description.length) {
       setFirstIntervalDone(true);
     }
@@ -31,26 +32,37 @@ const ModalHome = () => {
   }, [description, cta, generatedText, firstIntervalDone]);
 
   return (
-    <div className="bg-color">
-      <div className="container">
-        <div className="text-container">
-          <h1 className="main-title">PokeDev</h1>
-          <p className="auto-generated-text">{generatedText}</p>
-          <p className="auto-generated-text">{generatedCta}</p>
+    <div className="bg-black h-[100dvh] w-[100dvw]">
+      <div className="w-full bg-black flex flex-col flex-wrap items-center">
+        <div
+          className="text-base leading-10 p-10 w-[100dvw]
+
+        xl:text-xl  xl:leading-10 xl:p-10 xl:mx-auto xl:w-1/2 xl:flex xl:flex-col"
+        >
+          <h1
+            className=" text-4xl mb-3 bg-gradient-to-r from-indigo-800 to-purple-500 text-transparent bg-clip-text
+          
+          xl:mb-6"
+          >
+            PokeDev
+          </h1>
+          <p className="text-white">{generatedText}</p>
+          <p className="text-white mt-5 xl:mt-9">{generatedCta}</p>
         </div>
-        <div className="img-container">
-          <img
-            className="fleche"
-            src="https://e7.pngegg.com/pngimages/150/238/png-clipart-arrow-logo-three-arrow-angle-rectangle.png"
-            alt="flèche"
-          />
+        <div className=" flex flex-col items-center  mt-10">
+          <img className="fleche" src={arrow} alt="flèche" />
           <Link to="/pokemain">
-            <img src={logolight} alt="logo" className="logo" />
+            <img
+              src={logolight}
+              alt="logo"
+              className="mt-2 w-[20dvw]
+            xl:mt-1  xl:w-[10dvw]"
+            />
           </Link>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default ModalHome;
