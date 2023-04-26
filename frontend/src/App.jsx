@@ -14,8 +14,8 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="pokemain" element={<Pokemain />} />
-          <Route path="about" element={<About />} />
+          <Route path="/pokemain" element={<Pokemain />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>
