@@ -1,4 +1,6 @@
 import "./App.css";
+import "./Home.css";
+
 // theme
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 // core
@@ -15,10 +17,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pokemain" element={<Pokemain />} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>
+    // <Router>
+    //   <div>
+    //     <Routes>
+    //       <Route path="/" element={<Home />} />
+    //       <Route path="/pokemain" element={<Pokemain />} />
+    //       <Route path="/about" element={<About />} />
+    //     </Routes>
+    //   </div>
+    // </Router>
   );
 }
 
