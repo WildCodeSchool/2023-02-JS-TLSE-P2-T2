@@ -1,4 +1,6 @@
 import "./App.css";
+import "./Home.css";
+
 // theme
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 // core
