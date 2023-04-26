@@ -21,15 +21,6 @@ function App() {
         </Routes>
       </div>
     </Router>
-    // <Router>
-    //   <div>
-    //     <Routes>
-    //       <Route path="/" element={<Home />} />
-    //       <Route path="/pokemain" element={<Pokemain />} />
-    //       <Route path="/about" element={<About />} />
-    //     </Routes>
-    //   </div>
-    // </Router>
   );
 }
 
