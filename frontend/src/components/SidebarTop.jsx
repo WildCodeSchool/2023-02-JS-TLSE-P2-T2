@@ -3,7 +3,7 @@ import { Sidebar } from "primereact/sidebar";
 import { Button } from "primereact/button";
 import { Divider } from "primereact/divider";
 
-import ToggleButtonFilter from "./ToggleButtonFilter";
+import FilterCategory from "./FilterCategory";
 
 export default function SideBarTop() {
   const [visibleTop, setVisibleTop] = useState(false);
@@ -28,81 +28,25 @@ export default function SideBarTop() {
         style={{ height: "100dvh" }}
       >
         <div className="filter">
-          <div className="filterCategory">
-            <h3>Lorem:</h3>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-          </div>
+          <FilterCategory />
 
           {mobileSize.matches ? (
             <Divider layout="horizontal" />
           ) : (
             <Divider layout="vertical" />
           )}
-          <div className="filterCategory">
-            <h3>Lorem:</h3>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-          </div>
+          <FilterCategory />
         </div>
         <Divider />
         <div className="filter">
-          <div className="filterCategory">
-            <h3>Lorem:</h3>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-          </div>
+          <FilterCategory />
 
           {mobileSize.matches ? (
             <Divider layout="horizontal" />
           ) : (
             <Divider layout="vertical" />
           )}
-          <div className="filterCategory">
-            <h3>Lorem:</h3>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-            <div className="filterAndToggle">
-              <p className="filterItem">Lorem ipsum</p>
-              <ToggleButtonFilter />
-            </div>
-          </div>
+          <FilterCategory />
         </div>
       </Sidebar>
     </div>
