@@ -1,10 +1,12 @@
 import "./App.css";
+import "./css/SideBarTop.css";
 import "./Home.css";
 
 // theme
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 // core
 import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Pokemain from "./pages/Pokemain";

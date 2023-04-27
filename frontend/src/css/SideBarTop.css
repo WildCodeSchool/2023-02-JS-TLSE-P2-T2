@@ -1,0 +1,21 @@
+.filterAndToggle {
+  display: flex;
+  align-items: center;
+}
+.filterItem {
+  width: 70vw;
+}
+
+@media screen and (min-width: 768px) {
+  .heightSideBarDesktop {
+    height: 50vh;
+  }
+  .filterCategory {
+    width: 40%;
+    padding-inline: 10px;
+  }
+  .filter {
+    display: flex;
+    justify-content: space-between;
+  }
+}
