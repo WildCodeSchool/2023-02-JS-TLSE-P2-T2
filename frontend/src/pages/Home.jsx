@@ -40,7 +40,7 @@ function ModalHome() {
         xl:text-xl  xl:leading-10 xl:p-10 xl:mx-auto xl:w-1/2 xl:flex xl:flex-col"
         >
           <h1
-            className=" text-4xl mb-3 bg-gradient-to-r from-indigo-800 to-purple-500 text-transparent bg-clip-text
+            className="text-4xl mb-3 bg-gradient-to-r from-indigo-800 to-purple-500 text-transparent bg-clip-text
           
           xl:mb-6"
           >
