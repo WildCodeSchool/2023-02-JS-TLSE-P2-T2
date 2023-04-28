@@ -21,11 +21,11 @@ export default function SideBarTop() {
       </div>
 
       <Sidebar
-        className="bg-white heightSideBarDesktop"
+        // className=
         visible={visibleTop}
         position="top"
         onHide={() => setVisibleTop(false)}
-        style={{ height: "100dvh" }}
+        style={{ height: "80dvh" }}
       >
         <div className="filter">
           <FilterCategory />
