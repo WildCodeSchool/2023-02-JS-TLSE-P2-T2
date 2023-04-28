@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "Consolas";
+  src: url("https://fontsforyou.com/fonts/c/Consolas.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.tabUser {
+  display: flex;
+  align-content: stretch;
+  background-color: #041b3b;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 30px;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+.tabUserAvatar {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabUserAvatar img {
+  width: 100px;
+  border: 1px solid white;
+  box-shadow: 5px 5px 5px #041b3b;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.tabUserLogin,
+.tabUserId {
+  color: #041b3b;
+  font-weight: bold;
+  font-family: "PIRATE SCROLL", sans-serif;
+  font-size: 20px;
+  margin: 5px;
+  text-shadow: 5px 5px 10px #bdc8d7;
+}
+.tabUserLogin {
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.tabUserId {
+  font-size: 17px;
+}
+
+.tabHeader {
+  background-color: #041b3b;
+  border: 1px #041b3b solid;
+  height: 40px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.tabFooter {
+  background-color: #041b3b;
+  border: 1px #041b3b solid;
+  height: 40px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.tabContainer {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
+  margin-left: 26%;
+  margin-top: 30px;
+  gap: 10px;
+}
+.buttons button {
+  border: 1px white solid;
+  background-color: #041b3b;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+}
+
+@media screen and (min-width: 900px) {
+  .tabUser {
+    min-width: 15vw;
+    box-shadow: 5px 5px 10px white;
+  }
+
+  .tabContainer {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
