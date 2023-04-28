@@ -25,11 +25,11 @@ function CardProfil({ dataTabUsers }) {
   );
 }
 
-// CardProfil.propTypes = {
-//   dataTabUsers: PropTypes.arrayOf(
-//     PropTypes.objectOf(
-//       PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
-//     )
-//   ).isRequired,
-// };
+CardProfil.propTypes = {
+  dataTabUsers: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+};
 export default CardProfil;

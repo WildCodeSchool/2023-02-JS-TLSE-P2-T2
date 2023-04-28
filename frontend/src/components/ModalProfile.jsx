@@ -62,34 +62,34 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
   );
 }
 
-// ModalProfile.propTypes = {
-//   dataTab: PropTypes.shape({
-//     avatar_url: "",
-//     login: "",
-//     name: "",
-//     id: "",
-//     html_url: "",
-//     followers: "",
-//     public_repos: "",
-//     location: "",
-//     updated_at: "",
-//   }).isRequired,
-//   setIsVisible: PropTypes.bool.isRequired,
-//   dataRepos: PropTypes.arrayOf(
-//     PropTypes.objectOf(
-//       PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
-//     )
-//   ).isRequired,
-//   Lang: PropTypes.arrayOf(
-//     PropTypes.objectOf(
-//       PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
-//     )
-//   ).isRequired,
-//   dataGiters: PropTypes.arrayOf(
-//     PropTypes.objectOf(
-//       PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
-//     )
-//   ).isRequired,
-// };
+ModalProfile.propTypes = {
+  dataTab: PropTypes.shape({
+    avatar_url: "",
+    login: "",
+    name: "",
+    id: "",
+    html_url: "",
+    followers: "",
+    public_repos: "",
+    location: "",
+    updated_at: "",
+  }).isRequired,
+  setIsVisible: PropTypes.bool.isRequired,
+  dataRepos: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  Lang: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  dataGiters: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+};
 
 export default ModalProfile;
