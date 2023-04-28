@@ -1,20 +1,25 @@
-
+import PropTypes from "prop-types";
+import { useState } from "react";
 import SideBarTop from "../components/SidebarTop";
 import CardProfil from "../components/CardProfil";
 import loadingImg from "../assets/loadingImg.gif";
 import ModalProfile from "../components/ModalProfile";
 import "../css/CardProfil.css";
 import "../css/ModalProfile.css";
-import { useState } from "react";
 
-//dataTabUser est une fonction qui retourne un tableau d'objet avec les infos des users 6 par 6 
-//qui est passé en props au composant CardProfil, il est le résultat de l'appel API sur le endpoint user
+// dataTabUser est une fonction qui retourne un tableau d'objet avec les infos des users 6 par 6
+// qui est passé en props au composant CardProfil, il est le résultat de l'appel API sur le endpoint user
 
-
-
-
-export default function Pokemain({dataTab,dataRepos,Lang,count,dataGiters,startIndex,loading,setStartIndex,setCount}) {
-  const [isTrue , setIsTrue] = useState(false)
+export default function Pokemain({
+  dataTab,
+  dataRepos,
+  Lang,
+  dataGiters,
+  startIndex,
+  loading,
+  setStartIndex,
+}) {
+  const [isVisible, setIsVisible] = useState(false);
   const nextCards = () => {
     if (startIndex + 6 < dataTab.length) {
       setStartIndex(startIndex + 6);
@@ -32,21 +37,19 @@ export default function Pokemain({dataTab,dataRepos,Lang,count,dataGiters,startI
     const randomStartIndex = Math.floor(Math.random() * (dataTab.length - 6));
     setStartIndex(randomStartIndex);
   };
-  
+
   // sélection de 4 profil parmi la liste des données retournées
   const getCurrentCards = () => {
     return dataTab.slice(startIndex, startIndex + 6);
   };
   return (
-    
     <div>
-        <p>Pokemain</p>
-        <SideBarTop />
-     
+      <p>Pokemain</p>
+      <SideBarTop />
+
       <div className="flex items-end ">
         <div>
           <div>
-
             {getCurrentCards().length > 0 ? (
               <CardProfil dataTabUsers={getCurrentCards()} />
             ) : (
@@ -72,23 +75,49 @@ export default function Pokemain({dataTab,dataRepos,Lang,count,dataGiters,startI
           ) : (
             <div>
               <div>
-                <button type="button" onClick={()=> setIsTrue(true)}>
+                <button type="button" onClick={() => setIsVisible(true)}>
                   Get user
                 </button>
               </div>
-              {isTrue &&  
-              <ModalProfile
-                setIsTrue = {setIsTrue}
-                dataRepos={dataRepos}
-                dataTab={dataTab}
-                Lang={Lang}
-                dataGiters={dataGiters}
-              /> }
-             
+              {isVisible && (
+                <ModalProfile
+                  setIsVisible={setIsVisible}
+                  dataRepos={dataRepos}
+                  dataTab={dataTab}
+                  Lang={Lang}
+                  dataGiters={dataGiters}
+                />
+              )}
             </div>
           )}
         </div>
       </div>
-      </div>
+    </div>
   );
 }
+
+Pokemain.propTypes = {
+  dataTab: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  dataRepos: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  Lang: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  dataGiters: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  startIndex: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
+  setStartIndex: PropTypes.number.isRequired,
+};

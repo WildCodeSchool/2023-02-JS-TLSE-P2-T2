@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -27,16 +26,10 @@ function CardProfil({ dataTabUsers }) {
 }
 
 CardProfil.propTypes = {
-  dataTabUsers: PropTypes.shape({
-    avatar_url: "",
-    login: "",
-    name: "",
-    id: "",
-    html_url: "",
-    followers: "",
-    public_repos: "",
-    location: "",
-    updated_at: "",
-  }).isRequired,
+  dataTabUsers: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
 };
 export default CardProfil;

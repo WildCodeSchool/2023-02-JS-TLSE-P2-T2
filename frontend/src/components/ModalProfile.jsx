@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function ModalProfile({setIsTrue,dataTab,dataRepos,Lang,dataGiters}) {
+function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
   const tabRepos = dataRepos.slice();
   let stars = 0;
-  for (let i = 0; i < tabRepos.length; i++) {
+  for (let i = 0; i < tabRepos.length; i += 1) {
     stars += tabRepos[i].stargazers_count;
   }
 
@@ -12,12 +12,18 @@ function ModalProfile({setIsTrue,dataTab,dataRepos,Lang,dataGiters}) {
     dataTab,
     dataRepos && (
       <div className="giter">
-        <button onClick={()=> setIsTrue(false)} className="text-lg">CLOSE</button>
+        <button
+          type="button"
+          onClick={() => setIsVisible(false)}
+          className="text-lg"
+        >
+          CLOSE
+        </button>
         <ul className="infos" key={dataGiters.id}>
           <div className="profil_header">
             <li className="name">{dataGiters.name}</li>
             <li className="avatar">
-              <img src={dataGiters.avatar_url} />{" "}
+              <img src={dataGiters.avatar_url} alt={dataTab.login} />
             </li>
           </div>
 
@@ -57,7 +63,7 @@ function ModalProfile({setIsTrue,dataTab,dataRepos,Lang,dataGiters}) {
 }
 
 ModalProfile.propTypes = {
-  dataUsers: PropTypes.shape({
+  dataTab: PropTypes.shape({
     avatar_url: "",
     login: "",
     name: "",
@@ -68,16 +74,22 @@ ModalProfile.propTypes = {
     location: "",
     updated_at: "",
   }).isRequired,
-};
-
-ModalProfile.propTypes = {
-  dataRepo: PropTypes.shape({
-    name: "",
-    full_name: "",
-    stargazers_count: "",
-    language: "",
-    updated_at: "",
-  }).isRequired,
+  setIsVisible: PropTypes.bool.isRequired,
+  dataRepos: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  Lang: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  dataGiters: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
 };
 
 export default ModalProfile;
