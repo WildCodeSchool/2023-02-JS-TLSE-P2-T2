@@ -39,6 +39,7 @@ export default function Pokemain({
     setStartIndex(randomStartIndex);
   };
 
+
   // sélection de 6 profil parmi la liste des données retournées
   const getCurrentCards = () => {
     return dataTab.slice(startIndex, startIndex + 6);

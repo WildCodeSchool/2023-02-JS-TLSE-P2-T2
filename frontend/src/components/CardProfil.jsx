@@ -39,7 +39,6 @@ function CardProfil({ dataTabUsers }) {
     )
   );
 }
-
 CardProfil.propTypes = {
   dataTabUsers: PropTypes.arrayOf(
     PropTypes.objectOf(
