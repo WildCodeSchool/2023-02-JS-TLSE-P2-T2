@@ -3,6 +3,7 @@ import "./css/SideBarTop.css";
 import "./Home.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+// theme
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
@@ -13,7 +14,6 @@ import About from "./pages/About";
 
 function App() {
   // Création des variables à remplir
-
   const [dataTab, setDataTab] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [dataRepos, setDataRepos] = useState([]);
@@ -80,7 +80,9 @@ function App() {
     }
     setLang(Array.from(langSet));
   }, [dataRepos]);
-
+  // on récupére les donner du endpoint user(avatar, nomn infos etc...)
+  // Création du bouton "next" pour faire apparaitre 4 profils et faire disparaitre ceux actuels
+  // récupération des infos pour la modal Profil
   return (
     <Router>
       <div>
