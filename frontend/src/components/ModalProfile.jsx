@@ -305,7 +305,7 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
 }
 
 ModalProfile.propTypes = {
-  dataTab: PropTypes.objectOf({
+  dataTab: PropTypes.shape({
     avatar_url: "",
     login: "",
     name: "",
