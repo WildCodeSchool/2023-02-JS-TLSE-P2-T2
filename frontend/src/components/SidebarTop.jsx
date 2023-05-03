@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import { Sidebar } from "primereact/sidebar";
 import { Divider } from "primereact/divider";
+import { Button } from "primereact/button";
 import lightLogo from "../assets/LogoLight.png";
 
 import SearchBar from "./SearchBar";
