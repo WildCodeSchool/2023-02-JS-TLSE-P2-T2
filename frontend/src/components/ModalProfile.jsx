@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import starsLogo from "../assets/star.png";
 import mediumLogo from "../assets/LogoMedium.png";
 import X from "../assets/x-circle.svg";
 import Etoile from "./etoiles";
+
 function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
   const tabRepos = dataRepos.slice();
   let stars = 0;
