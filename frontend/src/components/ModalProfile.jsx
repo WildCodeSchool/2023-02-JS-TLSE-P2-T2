@@ -260,16 +260,16 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
 }
 
 ModalProfile.propTypes = {
-  dataTab: PropTypes.shape({
-    avatar_url: "",
-    login: "",
-    name: "",
-    id: "",
-    html_url: "",
-    followers: "",
-    public_repos: "",
-    location: "",
-    updated_at: "",
+  dataTab: PropTypes.objectOf({
+    avatar_url: PropTypes.string,
+    login: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.string,
+    html_url: PropTypes.string,
+    followers: PropTypes.string,
+    public_repos: PropTypes.string,
+    location: PropTypes.string,
+    updated_at: PropTypes.string,
   }).isRequired,
   setIsVisible: PropTypes.bool.isRequired,
   dataRepos: PropTypes.arrayOf(
