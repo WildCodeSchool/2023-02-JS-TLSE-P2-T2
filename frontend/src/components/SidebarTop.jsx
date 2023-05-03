@@ -15,8 +15,6 @@ export default function SideBarTop({ dataTab }) {
   const [visibleTop, setVisibleTop] = useState(false);
   const customIcons = <SearchBar dataTab={dataTab} />;
 
-  // const mobileSize = window.matchMedia("(max-width: 767px)");
-
   return (
     <div className="card">
       <div>
@@ -52,11 +50,6 @@ export default function SideBarTop({ dataTab }) {
         <div className="filter">
           <FilterCategory />
 
-          {/* {mobileSize.matches ? (
-            <Divider layout="horizontal" />
-          ) : (
-            <Divider layout="vertical" />
-          )} */}
           <DividerResponsive />
           <FilterCategory />
         </div>

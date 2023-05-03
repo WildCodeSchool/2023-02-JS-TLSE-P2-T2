@@ -1,26 +1,8 @@
 import { useState } from "react";
 import { InputText } from "primereact/inputtext";
-// import axios from "axios";
-
-// https://api.github.com/search/users?q=location:france&per_page=100
-// exemple de query
-// ?q=location:france&per_page=100"
-// ?q=language:javascript
 
 export default function SearchBar() {
   const [value, setValue] = useState("");
-  // const [dataSearchUsers, setDataSearchUsers] = useState([]);
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://api.github.com/search/users?q=location:france&per_page=100`)
-  //     .then((response) => {
-  //       setDataSearchUsers(response.data.items);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error.message);
-  //     });
-  // }, []);
 
   return (
     <div>
