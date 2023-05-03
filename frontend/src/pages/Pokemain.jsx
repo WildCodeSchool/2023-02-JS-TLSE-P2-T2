@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import "primereact/resources/themes/lara-dark-indigo/theme.css";
+import "primereact/resources/primereact.css";
 import SideBarTop from "../components/SidebarTop";
 import CardProfil from "../components/CardProfil";
 import loadingImg from "../assets/loadingImg.gif";

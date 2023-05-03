@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import { Sidebar } from "primereact/sidebar";
 import { Divider } from "primereact/divider";
+import { Button } from "primereact/button";
 import lightLogo from "../assets/LogoLight.png";
 
+import SearchBar from "./SearchBar";
 import FilterCategory from "./FilterCategory";
 
-export default function SideBarTop() {
-  const [visibleTop, setVisibleTop] = useState(false);
+import DividerResponsive from "./DividerResponsive";
 
-  const mobileSize = window.matchMedia("(max-width: 767px)");
+export default function SideBarTop({ dataTab }) {
+  const [visibleTop, setVisibleTop] = useState(false);
+  const customIcons = <SearchBar dataTab={dataTab} />;
 
   return (
     <div className="card">
@@ -27,34 +32,52 @@ export default function SideBarTop() {
       </div>
 
       <Sidebar
-        className="bg-white heightSideBarDesktop"
         visible={visibleTop}
         position="top"
         onHide={() => setVisibleTop(false)}
-        style={{ height: "100dvh" }}
+        style={{ height: "80dvh" }}
+        icons={customIcons}
       >
         <div className="filter">
           <FilterCategory />
-
-          {mobileSize.matches ? (
-            <Divider layout="horizontal" />
-          ) : (
-            <Divider layout="vertical" />
-          )}
+          <DividerResponsive />
           <FilterCategory />
         </div>
-        <Divider />
+        <div className="desktop">
+          <Divider />
+        </div>
+
         <div className="filter">
           <FilterCategory />
 
-          {mobileSize.matches ? (
-            <Divider layout="horizontal" />
-          ) : (
-            <Divider layout="vertical" />
-          )}
+          <DividerResponsive />
           <FilterCategory />
+        </div>
+        <div className="divButtonSearchSideBar">
+          <Button
+            className="buttonSearchSideBar"
+            label="Search"
+            type="submit"
+            icon="pi pi-check"
+            iconPos="right"
+            outlined
+            size="small"
+          />
         </div>
       </Sidebar>
     </div>
   );
 }
+SideBarTop.propTypes = {
+  dataTab: PropTypes.shape({
+    avatar_url: "",
+    login: "",
+    name: "",
+    id: "",
+    html_url: "",
+    followers: "",
+    public_repos: "",
+    location: "",
+    updated_at: "",
+  }).isRequired,
+};

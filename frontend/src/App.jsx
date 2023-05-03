@@ -6,6 +6,7 @@ import axios from "axios";
 // theme
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
+
 import "primeicons/primeicons.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
