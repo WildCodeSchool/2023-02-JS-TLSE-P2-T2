@@ -2,3 +2,10 @@
   text-align: center;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "My Font";
+  src: url("./fonts/pixelplay.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
