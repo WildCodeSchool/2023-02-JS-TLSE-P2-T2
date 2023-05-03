@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import starsLogo from "../assets/star.png";
 import mediumLogo from "../assets/LogoMedium.png";
 import X from "../assets/x-circle.svg";
-
+import Etoile from "./etoiles";
 function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
   const tabRepos = dataRepos.slice();
   let stars = 0;
   for (let i = 0; i < tabRepos.length; i += 1) {
     stars += tabRepos[i].stargazers_count;
   }
+
   return (
     dataTab,
     dataRepos && (
@@ -66,7 +67,7 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
                   <p className="text-blue-950 text-xl font-bold">
                     {dataGiters.login}
                   </p>
-                  <p className="invisible">blabla</p>
+                  <p className="invisible">lorem</p>
                 </div>
                 <div className="xl:bg-white xl:mt-5 xl:bg-opacity-40 xl:mx-auto xl:w-[30%] xl:m-3 xl:p-2">
                   <h2 className="text-center font-bold text-blue-950">TYPE</h2>
@@ -91,116 +92,46 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
             <div className="xl:flex-1 ">
               {stars < 200 ? (
                 <div className="xl:flex xl:justify-center">
-                  <li>
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                  </li>
+                  <Etoile />
                 </div>
               ) : (
                 <p />
               )}
               {stars > 200 && stars < 500 ? (
-                <li>
-                  <div className="xl:flex xl:justify-center">
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                  </div>
-                </li>
+                <div className="xl:flex xl:justify-center">
+                  <Etoile />
+                  <Etoile />
+                </div>
               ) : (
                 <p />
               )}
               {stars > 500 && stars < 1000 ? (
-                <li>
-                  <div className="xl:flex xl:justify-center">
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                  </div>
-                </li>
+                <div className="xl:flex xl:justify-center">
+                  <Etoile />
+                  <Etoile />
+                  <Etoile />
+                </div>
               ) : (
                 <p />
               )}
               {stars > 1000 && stars < 2000 ? (
-                <li>
-                  <div className="xl:flex xl:justify-center">
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                  </div>
-                </li>
+                <div className="xl:flex xl:justify-center">
+                  <Etoile />
+                  <Etoile />
+                  <Etoile />
+                  <Etoile />
+                </div>
               ) : (
                 <p />
               )}
               {stars > 2500 ? (
-                <li>
-                  <div className="flex justify-center">
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="m-3 w-[10%] xl:w-[3dvw] "
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                    <img
-                      src={starsLogo}
-                      alt=""
-                      className="xl:w-[3dvw] w-[10%] m-3"
-                    />
-                  </div>
-                </li>
+                <div className="flex justify-center">
+                  <Etoile />
+                  <Etoile />
+                  <Etoile />
+                  <Etoile />
+                  <Etoile />
+                </div>
               ) : (
                 <p />
               )}
@@ -253,60 +184,13 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
             </div>
           </section>
         </ul>
-        <div className="giter">
-          <button
-            type="button"
-            onClick={() => setIsVisible(false)}
-            className="text-lg"
-          >
-            CLOSE
-          </button>
-          <ul className="infos" key={dataGiters.id}>
-            <div className="profil_header">
-              <li className="name">{dataGiters.name}</li>
-              <li className="avatar">
-                <img src={dataGiters.avatar_url} alt={dataTab.login} />
-              </li>
-            </div>
-
-            <div className="info-container">
-              <li className="login">Pseudo: {dataGiters.login}</li>
-              <li>Followers: {dataGiters.followers}</li>
-              <li>Repos total: {dataGiters.public_repos}</li>
-              <li>localisation : {dataGiters.location}</li>
-              <li>Dernière activité : {dataGiters.updated_at}</li>
-              <li>Nombre de mis en favoris (Stars) : {stars}</li>
-              <li>
-                Blog:{" "}
-                <a href="{dataGiters.blog}" target="blank">
-                  {" "}
-                  {dataGiters.blog}
-                </a>
-              </li>
-              <li>
-                Github:{" "}
-                <a href="{dataGiters.html_url}" target="blank">
-                  {dataGiters.html_url}
-                </a>
-              </li>
-            </div>
-          </ul>
-          <div className="langages">
-            <h4 className="langage_title">Langages</h4>
-            <ul>
-              {Lang.map((lang) => (
-                <li key={lang}>{lang}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
       </div>
     )
   );
 }
 
 ModalProfile.propTypes = {
-  dataTab: PropTypes.shape({
+  dataTab: PropTypes.objectOf({
     avatar_url: PropTypes.string,
     login: PropTypes.string,
     name: PropTypes.string,
