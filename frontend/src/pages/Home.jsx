@@ -17,7 +17,7 @@ function ModalHome() {
       setGeneratedText(
         (prevText) => prevText + description.charAt(prevText.length)
       );
-    }, 30);
+    }, 20);
     if (generatedText.length === description.length) {
       setFirstIntervalDone(true);
     }
@@ -50,13 +50,20 @@ function ModalHome() {
           <p className="text-white mt-5 xl:mt-9">{generatedCta}</p>
         </div>
         <div className=" flex flex-col items-center  mt-10">
-          <img className="fleche" src={arrow} alt="flèche" />
+          <img
+            className={`fleche ${
+              generatedCta.length === cta.length ? "block" : "hidden"
+            }`}
+            src={arrow}
+            alt="flèche"
+          />
           <Link to="/pokemain">
             <img
               src={logolight}
               alt="logo"
-              className="mt-2 w-[20dvw]
-            xl:mt-1  xl:w-[10dvw]"
+              className={`mt-2 xl:mt-1 w-[20dvw] xl:w-[10dvw] ${
+                generatedCta.length === cta.length ? "block" : "hidden"
+              }`}
             />
           </Link>
         </div>

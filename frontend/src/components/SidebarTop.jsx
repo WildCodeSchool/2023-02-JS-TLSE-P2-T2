@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Sidebar } from "primereact/sidebar";
-import { Button } from "primereact/button";
 import { Divider } from "primereact/divider";
+import lightLogo from "../assets/LogoLight.png";
 
 import FilterCategory from "./FilterCategory";
 
@@ -12,12 +12,18 @@ export default function SideBarTop() {
 
   return (
     <div className="card">
-      <div className="flex gap-2 justify-content-center">
-        <Button
-          icon="pi pi-sliders-h"
-          className="p-button-rounded"
+      <div>
+        <button
+          className="border-white border-4 rounded-full"
           onClick={() => setVisibleTop(true)}
-        />
+          type="button"
+        >
+          <img
+            src={lightLogo}
+            className="w-[5dvw] transition-all duration-300 hover:w-[7dvw] cursor-pointer"
+            alt="logo"
+          />
+        </button>
       </div>
 
       <Sidebar
