@@ -53,108 +53,118 @@ export default function Pokemain({
         isVisible ? "backdrop-filter backdrop-blur-lg" : ""
       }`}
     >
-      <div className="p-7 xl:p-0 xl:w-[100dvw]">
-        <h1 className="font-bold bg-gradient-to-b from-indigo-400 to-purple-600 text-transparent bg-clip-text text-5xl xl:m-3 xl:text-left xl:p-5">
-          PokeDev
-        </h1>
-        <div className="hidden  xl:flex xl:items-center xl:mb-5">
-          <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1 ">
-            <p className="xl:invisible">Lorem</p>
-          </div>
+      {isVisible && (
+        <ModalProfile
+          setIsVisible={setIsVisible}
+          dataRepos={dataRepos}
+          dataTab={dataTab}
+          Lang={Lang}
+          dataGiters={dataGiters}
+        />
+      )}
+      <div className={isVisible && "contentModal"}>
+        <div className="p-7 xl:p-0 xl:w-[100dvw]">
+          <h1 className="font-bold bg-gradient-to-b from-indigo-400 to-purple-600 text-transparent bg-clip-text text-5xl xl:text-left xl:pt-10 xl:pl-10">
+            PokeDev
+          </h1>
+          <div className="hidden  xl:flex xl:items-center xl:mb-5">
+            <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1 ">
+              <p className="xl:invisible">Lorem</p>
+            </div>
 
-          <div className="xl:flex 1">
-            <SideBarTop />
-          </div>
-          <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1">
-            <p className="xl:invisible">Lorem</p>
+            <div className="xl:flex 1">
+              <SideBarTop />
+            </div>
+            <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1">
+              <p className="xl:invisible">Lorem</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="xl:flex xl:flex-wrap xl:w-[100dvw]">
-        <div className=" xl:w-[100%] xl:flex">
-          <div>
-            {getCurrentCards().length > 0 ? (
-              <CardProfil
-                dataTabUsers={getCurrentCards()}
-                dataGiters={dataGiters}
-              />
-            ) : (
-              <p>Désolé, pas de profils en vue</p>
-            )}
-          </div>
-          <div className="w-[100%] flex flex-col justify-center items-center">
-            <div className="xl:w-[50%] xl:h-[70%] w-[70%] h-[80dvh] bg-white text-black">
-              <p>CECI EST LE COMPOSANT POKEDEV</p>
-              {loading ? (
-                <img src={loadingImg} alt="Loading..." />
+        <div className="xl:flex xl:flex-wrap xl:w-[100dvw]">
+          <div className=" xl:w-[100%] xl:flex">
+            <div>
+              {getCurrentCards().length > 0 ? (
+                <CardProfil
+                  dataTabUsers={getCurrentCards()}
+                  dataGiters={dataGiters}
+                />
               ) : (
-                <div>
-                  <div>
-                    <button type="button" onClick={() => setIsVisible(true)}>
-                      Get user
-                    </button>
-                  </div>
-                  {isVisible && (
-                    <ModalProfile
-                      setIsVisible={setIsVisible}
-                      dataRepos={dataRepos}
-                      dataTab={dataTab}
-                      Lang={Lang}
-                      dataGiters={dataGiters}
-                    />
-                  )}
-                </div>
+                <p>Désolé, pas de profils en vue</p>
               )}
-              <div className="flex justify-center gap-7 p-3 xl:hidden">
-                <button onClick={prevCards} type="button">
+            </div>
+            <div className="w-[100%] flex flex-col justify-center items-center">
+              <div className="xl:w-[50%] xl:h-[70%] w-[70%] h-[80dvh] bg-white text-black">
+                <p>CECI EST LE COMPOSANT POKEDEV</p>
+                {loading ? (
+                  <img src={loadingImg} alt="Loading..." />
+                ) : (
+                  <div>
+                    <div>
+                      <button type="button" onClick={() => setIsVisible(true)}>
+                        Get user
+                      </button>
+                    </div>
+                  </div>
+                )}
+                <div className="flex justify-center gap-7 p-3 xl:hidden">
+                  <button onClick={prevCards} type="button">
+                    <img
+                      src={leftArrow}
+                      alt="arrow"
+                      className="cursor-pointer w-[3.5dvw]"
+                    />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={randomCards}
+                    className="hidden"
+                  >
+                    Random
+                  </button>
+                  <button className=" onClick={nextCards}" type="button">
+                    <img
+                      src={rightArrow}
+                      alt="arrow"
+                      className="cursor-pointer w-[3.5dvw]"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div className="hidden xl:flex xl:mt-5 xl:w-[17dvw] xl:justify-between  xl:p-3">
+                <button type="button" onClick={prevCards}>
                   <img
                     src={leftArrow}
                     alt="arrow"
-                    className="cursor-pointer w-[3.5dvw]"
+                    className="xl:cursor-pointer xl:w-[3.5dvw]"
                   />
                 </button>
 
                 <button type="button" onClick={randomCards} className="hidden">
                   Random
                 </button>
-                <button className=" onClick={nextCards}" type="button">
+                <button onClick={nextCards} type="button">
                   <img
                     src={rightArrow}
                     alt="arrow"
-                    className="cursor-pointer w-[3.5dvw]"
+                    className="xl:cursor-pointer xl:w-[3.5dvw]"
                   />
                 </button>
               </div>
             </div>
-            <div className="hidden xl:flex xl:mt-5 xl:w-[17dvw] xl:justify-between  xl:p-3">
-              <button type="button" onClick={prevCards}>
-                <img
-                  src={leftArrow}
-                  alt="arrow"
-                  className="xl:cursor-pointer xl:w-[3.5dvw]"
-                />
-              </button>
-
-              <button type="button" onClick={randomCards} className="hidden">
-                Random
-              </button>
-              <button onClick={nextCards} type="button">
-                <img
-                  src={rightArrow}
-                  alt="arrow"
-                  className="xl:cursor-pointer xl:w-[3.5dvw]"
-                />
-              </button>
-            </div>
           </div>
+          <div />
         </div>
-        <div />
-      </div>
-      <div className="flex m-5 justify-center xl:hidden">
-        <img src={lightLogo} className="w-[39dvw] cursor-pointer" alt="logo" />
-      </div>
-      <div className="w-[100dvw] xl:text-blue-800 ">
-        <p>FOOTER</p>
+        <div className="flex m-5 justify-center xl:hidden">
+          <img
+            src={lightLogo}
+            className="w-[39dvw] cursor-pointer"
+            alt="logo"
+          />
+        </div>
+        <div className="w-[100dvw] xl:text-blue-800 ">
+          <p>FOOTER</p>
+        </div>
       </div>
     </div>
   );
