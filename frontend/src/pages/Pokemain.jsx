@@ -8,6 +8,8 @@ import CardProfil from "../components/CardProfil";
 import PokedevProfil from "../components/PokedevProfil";
 import loadingImg from "../assets/loadingImg.gif";
 import ModalProfile from "../components/ModalProfile";
+import "../css/CardProfil.css";
+import "../css/ModalProfile.css";
 import lightLogo from "../assets/LogoLight.png";
 import leftArrow from "../assets/arrow-left-test.svg";
 import rightArrow from "../assets/arrow-right-test.svg";

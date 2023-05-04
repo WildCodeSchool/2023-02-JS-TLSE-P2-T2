@@ -1,4 +1,5 @@
 import "./App.css";
+import "./About.css";
 import "./css/SideBarTop.css";
 import "./Home.css";
 import { useEffect, useState } from "react";
@@ -22,6 +23,8 @@ function App() {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [dataGiters, setDataGiters] = useState([]);
+  const [aboutProfiles, setAboutProfiles] = useState([]);
+  const developpers = ["Jasminegrz", "jeromev81600", "M3DxM3D", "Othmandn"];
 
   // 1e Fetch pour récupérer l'intégralité des données des users remplir un tableau dataTab avec
 
@@ -82,8 +85,24 @@ function App() {
     setLang(Array.from(langSet));
   }, [dataRepos]);
   // on récupére les donner du endpoint user(avatar, nomn infos etc...)
-  // Création du bouton "next" pour faire apparaitre 4 profils et faire disparaitre ceux actuels
-  // récupération des infos pour la modal Profil
+
+  // Création du bouton "next" pour faire apparaitre 4 profiles et faire disparaitre ceux actuels
+
+  // récupération des infos pour la modal Profile
+
+  // Fetch pour section 'ABOUT US'  //
+  const getAboutProfiles = async () => {
+    try {
+      const promises = developpers.map((developper) =>
+        axios.get(`https://api.github.com/users/${developper}`)
+      );
+      const PromiseAboutProfiles = await Promise.all(promises);
+      setAboutProfiles(PromiseAboutProfiles);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <Router>
       <div>
@@ -105,7 +124,15 @@ function App() {
               />
             }
           />
-          <Route path="/about" element={<About />} />
+          <Route
+            path="/about"
+            element={
+              <About
+                aboutProfiles={aboutProfiles}
+                getAboutProfiles={getAboutProfiles}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>
