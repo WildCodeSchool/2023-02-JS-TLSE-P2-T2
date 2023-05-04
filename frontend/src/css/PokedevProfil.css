@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Consolas";
+  src: url("https://fontsforyou.com/fonts/c/Consolas.ttf");
+}
+
+.PokeProfil {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: stretch;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 5px 5px 10px white;
+}
+
+.languages {
+  height: 300px;
+}
+
+.PokeAvatar {
+  height: 200px;
+  width: 200px;
+}
+
+li {
+  color: #041b3b;
+}
+
+.PokedevButtons {
+  display: flex;
+  font-size: 20px;
+  margin: 20px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.PokedevButtons button {
+  gap: 10px;
+  background-color: #041b3b;
+  width: 100px;
+}
+
+.PokedevHeader {
+  background-color: #041b3b;
+  border: 1px #041b3b solid;
+  height: 250px;
+  width: 100%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.PokedevFooter {
+  background-color: #041b3b;
+  border: 1px #041b3b solid;
+  height: 250px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  width: 100%;
+}

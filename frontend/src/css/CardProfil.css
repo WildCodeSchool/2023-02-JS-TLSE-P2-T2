@@ -3,23 +3,6 @@
   src: url("https://fontsforyou.com/fonts/c/Consolas.ttf");
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-li {
-  list-style-type: none;
-}
-
 .tabUser {
   display: flex;
   align-content: stretch;

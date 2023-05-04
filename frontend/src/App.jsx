@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // theme
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
+// core
 import "primereact/resources/primereact.min.css";
-
 import "primeicons/primeicons.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -18,7 +18,7 @@ function App() {
   const [dataTab, setDataTab] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [dataRepos, setDataRepos] = useState([]);
-  const [Lang, setLang] = useState([]);
+  const [lang, setLang] = useState([]);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [dataGiters, setDataGiters] = useState([]);
@@ -95,7 +95,7 @@ function App() {
               <Pokemain
                 dataTab={dataTab}
                 dataRepos={dataRepos}
-                Lang={Lang}
+                lang={lang}
                 count={count}
                 setCount={setCount}
                 dataGiters={dataGiters}

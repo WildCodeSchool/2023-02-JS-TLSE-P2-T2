@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function CardProfil({ dataTabUsers }) {
+function CardProfil({ dataTabUsers, handleClickProfil }) {
   return (
     dataTabUsers && (
       <div>
@@ -20,12 +20,20 @@ function CardProfil({ dataTabUsers }) {
               <li>
                 <img
                   src={el.avatar_url}
-                  alt="lorem"
+                  alt="avatar"
                   className="xl:block xl:mx-auto xl:w-[50%]"
                 />
               </li>
               <li>{el.login}</li>
               <li>ID #{el.id}</li>
+              <button
+                className="count"
+                type="button"
+                onClick={() => handleClickProfil(el)}
+              >
+                {" "}
+                Click-me{" "}
+              </button>
               <div className="hidden xl:block xl:w-[100%] xl:rounded-bl-lg xl:rounded-br-lg xl:bg-blue-950 xl:mt-2">
                 <p className="hidden xl:block xl:invisible">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -45,5 +53,6 @@ CardProfil.propTypes = {
       PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
     )
   ).isRequired,
+  handleClickProfil: PropTypes.bool.isRequired,
 };
 export default CardProfil;
