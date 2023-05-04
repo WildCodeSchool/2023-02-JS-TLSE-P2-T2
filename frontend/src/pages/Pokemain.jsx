@@ -4,8 +4,8 @@ import SideBarTop from "../components/SidebarTop";
 import CardProfil from "../components/CardProfil";
 import loadingImg from "../assets/loadingImg.gif";
 import ModalProfile from "../components/ModalProfile";
-import "../css/CardProfil.css";
-import "../css/ModalProfile.css";
+import "../CSS/CardProfil.css";
+import "../CSS/ModalProfile.css";
 
 // dataTabUser est une fonction qui retourne un tableau d'objet avec les infos des users 6 par 6
 // qui est passé en props au composant CardProfil, il est le résultat de l'appel API sur le endpoint user

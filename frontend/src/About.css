@@ -64,7 +64,7 @@
   border-radius: 30px;
   margin-bottom: 25px;
   border: 1px solid white;
-    max-width: 300px;
+  max-width: 300px;
   min-width: 180px;
   min-height: 300px;
   max-height: 630px;
@@ -173,7 +173,7 @@ footer {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
-      }
+  }
 
   .ul_dataProfilesList {
     background-color: white;
