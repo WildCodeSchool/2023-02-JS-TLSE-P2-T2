@@ -14,7 +14,7 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
   return (
     dataTab,
     dataRepos && (
-      <div className="box-border w-[100dvw] bg-gradient-to-b from-indigo-900 via-rgba-27-3-199-3615 to-blue-200 absolute top-0 left-0 xl:xl:modal-bg xl:h-auto xl:bg-pink-100 xl:w-[60dvw] xl:top-1/2 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:-translate-y-1/2">
+      <div className="transform -translate-x-1/2 -translate-y-1/2 delay-1000 box-border w-[100dvw] bg-gradient-to-b from-indigo-900 via-rgba-27-3-199-3615 to-blue-200 absolute top-0 left-0 xl:xl:modal-bg xl:h-auto xl:bg-pink-100 xl:w-[60dvw] xl:top-1/2 xl:left-1/2 ">
         <button onClick={() => setIsVisible(false)} type="button">
           <img
             src={X}

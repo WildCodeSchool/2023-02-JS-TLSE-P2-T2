@@ -8,7 +8,7 @@ function CardProfil({ dataTabUsers }) {
         <div className="xl:w-[50dvw] xl:flex xl:flex-wrap xl:justify-center xl:gap-5">
           {dataTabUsers.map((el) => (
             <ul
-              className="hidden xl:block xl:rounded-xl xl:box-border xl:bg-white xl:text-blue-700 xl:w-[40%] "
+              className="transition ease-in-out delay-150 shadow shadow-gray-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg hover:shadow-gray-300 duration-300 before:hidden xl:block xl:rounded-xl xl:box-border xl:bg-white xl:text-blue-700 xl:w-[40%]"
               key={el.id}
             >
               <div className="hidden xl:block xl:w-[100%] xl:rounded-tl-lg xl:rounded-tr-lg xl:bg-blue-950 xl:mb-2 ">
