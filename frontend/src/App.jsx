@@ -1,6 +1,6 @@
 import "./App.css";
 import "./About.css";
-import "./CSS/SideBarTop.css";
+import "./css/SideBarTop.css";
 import "./Home.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -103,7 +103,7 @@ function App() {
     }
   };
 
-return (
+  return (
     <Router>
       <div>
         <Routes>
