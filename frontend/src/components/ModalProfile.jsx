@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import mediumLogo from "../assets/LogoMedium.png";
 import X from "../assets/x-circle.svg";
 import Etoile from "./etoiles";
 
@@ -14,7 +13,7 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
   return (
     dataTab,
     dataRepos && (
-      <div className="box-border w-[100dvw] bg-gradient-to-b from-indigo-900 via-rgba-27-3-199-3615 to-blue-200 absolute top-0 left-0 xl:xl:modal-bg xl:h-auto xl:bg-pink-100 xl:w-[60dvw] xl:top-1/2 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:-translate-y-1/2">
+      <div className="modalProfil shadow-xl shadow-gray-300  transform -translate-x-1/2 -translate-y-1/2 delay-1000 box-border w-[100dvw] bg-gradient-to-b from-indigo-900 via-rgba-27-3-199-3615 to-blue-200 absolute top-0 left-0 xl:xl:modal-bg xl:h-auto xl:bg-pink-100 xl:w-[60dvw] xl:top-1/2 xl:left-1/2 ">
         <button onClick={() => setIsVisible(false)} type="button">
           <img
             src={X}
@@ -36,9 +35,6 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
                 </li>
               </div>
               <div>
-                <div className="flex justify-center xl:block m-5">
-                  <img src={mediumLogo} alt="logo" className="w-[20%]" />
-                </div>
                 <div className="mt-8 mb-8 flex justify-around items-center">
                   <p className="xl:hidden text-2xl font-bold">
                     {" "}
@@ -57,7 +53,7 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
                 </p>
               </div>
               <div className="hidden xl:block self-start m-5 ">
-                <p className="text-3xl text-white font-bold">
+                <p className=" pl-20 text-3xl text-white font-bold">
                   ID #{dataGiters.id}
                 </p>
               </div>
@@ -88,7 +84,7 @@ function ModalProfile({ setIsVisible, dataTab, dataRepos, Lang, dataGiters }) {
             </section>
           </div>
 
-          <section className="xl:flex xl:flex-col xl:modal2-bg ">
+          <section className="xl:flex xl:flex-col bg-blue-950 rounded-b-3xl">
             <div className="xl:flex-1 ">
               {stars < 200 ? (
                 <div className="xl:flex xl:justify-center">
