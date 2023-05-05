@@ -177,7 +177,6 @@ export default function Pokemain({
                 <img src={loadingImg} alt="Loading..." />
               ) : (
                 <div>
-                 
                   {isVisible && (
                     <ModalProfile
                       dataRepoSelected={dataRepoSelected}
