@@ -177,11 +177,7 @@ export default function Pokemain({
                 <img src={loadingImg} alt="Loading..." />
               ) : (
                 <div>
-                  {/* <div>
-                    <button type="button" onClick={() => setIsVisible(true)}>
-                      Get user
-                    </button>
-                  </div> */}
+                 
                   {isVisible && (
                     <ModalProfile
                       dataRepoSelected={dataRepoSelected}
@@ -198,7 +194,7 @@ export default function Pokemain({
                 </div>
               )}
               <div className="flex justify-center gap-7 p-3 ">
-                <button onClick={prevCards} type="button">
+                <button onClick={prevCards} type="button" className="hidden">
                   <img
                     src={leftArrow}
                     alt="arrow"
@@ -209,7 +205,7 @@ export default function Pokemain({
                 <button type="button" onClick={randomCards} className="hidden">
                   <img src="./src/assets/random-btn.png" alt="random-btn" />
                 </button>
-                <button className=" onClick={nextCards}" type="button">
+                <button className="hidden" onClick={nextCards} type="button">
                   <img
                     src={rightArrow}
                     alt="arrow"

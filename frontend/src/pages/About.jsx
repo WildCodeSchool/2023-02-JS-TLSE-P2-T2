@@ -149,32 +149,30 @@ function About({ aboutProfiles, getAboutProfiles }) {
       </div>
       <div className="aboutBox">
         <section>
-          <h3 className="h3About">A propos..</h3>
+          <h3 className="h3About">About us...</h3>
           <p className="textAbout">
-            Si vous êtes à la recherche d'une expertise ou d'un futur
-            collaborateur, ce site est fait pour vous ! Il vous aidera à trouver
-            la perle rare parmi l'une des plus grandes communautés de
-            développeurs au monde : Github. Son fonctionnement repose sur le
-            principe du Pokedex, et comme pour son homologue vous devrez
-            l'utiliser pour rechercher et trouver des informations sur les
-            développeurs. Lorsque vous aurez trouvé le ou les profils qui vous
-            convient, vous n'aurez plus qu'à les contacter aux coordonnés
-            indiqués sur leur carte.
+            If you are looking for expertise or a future collaborator, this site
+            is made for you! It will help you find the rare pearl among one of
+            the world's largest communities of developers: Github. Its operation
+            is based on the principle of the Pokedex, and like its counterpart,
+            you will have to use it to search for and find information about
+            developers. Once you have found the profiles that suits you, all you
+            have to do is contact them at the coordinates indicated on their
+            card. The same goes for this text.
             <br />
-            Ce site a été réalisé sous la forme d'une application dynamique avec
-            'React', une bibliothèque Javascript permettant la création d'une
-            interface utilisateur. Les informations obtenues sur les
-            développeurs ont été récupérées grâce l'API de GITHUB.
+            This site was developed in the form of a dynamic application using
+            'React', a Javascript library for creating a user interface. The
+            information obtained on developers was retrieved using the GITHUB
+            API. The same goes for this text.
           </p>
         </section>
         <section className="section_dev">
-          <h3 className="h3About">Les développeurs</h3>
+          <h3 className="h3About">The team</h3>
           <p className="textAbout">
-            Ce projet a été réalisé dans le cadre de notre formation de
-            développeur web avec la Wild Code School de Toulouse et finalisé le
-            05 mai 2023. Vous retrouverez ci-dessous nos propres profiles Github
-            et quelques informations sur nos premiers pas en temps que
-            développeur junior.
+            This project was carried out as part of our web developer training
+            with the Wild Code School in Toulouse and completed on May 05, 2023.
+            Below you will find our own Github profiles and some information
+            about our first steps as junior developers.
             <br />
           </p>
           <div className="containerProfilesDeskt">

@@ -17,14 +17,14 @@ function ModalHome() {
       setGeneratedText(
         (prevText) => prevText + description.charAt(prevText.length)
       );
-    }, 20);
+    }, 15);
     if (generatedText.length === description.length) {
       setFirstIntervalDone(true);
     }
     if (firstIntervalDone) {
       const ctaTimer = setInterval(() => {
         setGeneratedCta((prevText) => prevText + cta.charAt(prevText.length));
-      }, 150);
+      }, 50);
       return () => clearInterval(ctaTimer);
     }
 
