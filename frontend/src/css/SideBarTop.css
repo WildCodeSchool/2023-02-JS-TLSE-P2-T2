@@ -40,6 +40,6 @@ div.p-sidebar-header {
   }
   .filter {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 }

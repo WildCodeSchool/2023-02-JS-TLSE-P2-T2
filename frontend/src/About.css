@@ -32,11 +32,6 @@
 
 /* Titres page AboutUs*/
 
-.h1About {
-  width: 100%;
-  font-size: 3em;
-  text-align: left;
-}
 .h3About {
   font-size: 2em;
   text-align: center;
@@ -133,20 +128,6 @@
   border-radius: 5px;
 }
 
-footer {
-  display: flex;
-  font-family: var(--textfont);
-  color: white;
-  text-align: center;
-  width: 100%;
-  margin-top: 10px;
-  background: linear-gradient(
-    354.2deg,
-    #1b03c7 -16.57%,
-    rgba(27, 3, 199, 0) 92.1%
-  );
-}
-
 .borderCardTop {
   background-color: #041b3b;
   border: 1px #041b3b solid;
@@ -173,6 +154,7 @@ footer {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
+    min-height: 600px;
   }
 
   .ul_dataProfilesList {
@@ -180,7 +162,7 @@ footer {
     margin-bottom: 25px;
     border: 1px solid white;
     border-radius: 30px;
-    min-width: 300px;
+    min-width: 250px;
     width: 100%;
     flex-direction: column;
     align-items: center;

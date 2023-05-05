@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "primereact/button";
+import Footer from "../components/Footer";
 
 function About({ aboutProfiles, getAboutProfiles }) {
   const [count, setCount] = useState(0);
@@ -72,7 +73,13 @@ function About({ aboutProfiles, getAboutProfiles }) {
       </div>
     );
   };
-
+  function scrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  }
+  scrollToTop();
   const renderDesktop = () => {
     return aboutProfiles.map((el) => (
       <ul className="ul_dataProfilesList" key={el.data.id}>
@@ -119,12 +126,26 @@ function About({ aboutProfiles, getAboutProfiles }) {
 
   return (
     <div className="mainAbout">
-      <h1 className="h1About">Pokedex</h1>
-      <div className="flex gap-2 justify-content-center">
-        <Link to="/pokemain">
-          {" "}
-          <Button icon="pi pi-home" className="p-button-rounded" />
-        </Link>
+      <div className="p-7 xl:p-0 xl:w-[100dvw]">
+        <h1 className="xl:ml-20 font-bold bg-gradient-to-b from-indigo-400 to-purple-600 text-transparent bg-clip-text text-5xl xl:m-3 xl:text-left xl:p-5">
+          PokeDev
+        </h1>
+        <div className="xl:flex xl:items-center xl:mb-5">
+          <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1 ">
+            <p className="hidden xl:invisible">Lorem</p>
+          </div>
+          <div className="mt-5 xl:mt-0 xl:border-4 xl:border-white xl:border-solid xl:rounded-full ">
+            <Link to="/pokemain">
+              <Button icon="pi pi-home" className="rounded-full block mx-auto">
+                <span className="w-full h-full" />
+              </Button>
+            </Link>
+          </div>
+          <div className="xl:flex 1" />
+          <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1">
+            <p className=" hidden xl:invisible">Lorem</p>
+          </div>
+        </div>
       </div>
       <div className="aboutBox">
         <section>
@@ -136,7 +157,7 @@ function About({ aboutProfiles, getAboutProfiles }) {
             développeurs au monde : Github. Son fonctionnement repose sur le
             principe du Pokedex, et comme pour son homologue vous devrez
             l'utiliser pour rechercher et trouver des informations sur les
-            développeurs. Lorsque vous aurez trouvé le ou les profiles qui vous
+            développeurs. Lorsque vous aurez trouvé le ou les profils qui vous
             convient, vous n'aurez plus qu'à les contacter aux coordonnés
             indiqués sur leur carte.
             <br />
@@ -170,9 +191,7 @@ function About({ aboutProfiles, getAboutProfiles }) {
           </div>
         </section>
       </div>
-      <footer>
-        <p>&copy;WCS Projet 2 - 06 Mai 2023</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

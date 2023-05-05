@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import "primereact/resources/themes/lara-dark-indigo/theme.css";
 import "primereact/resources/primereact.css";
@@ -10,11 +11,10 @@ import loadingImg from "../assets/loadingImg.gif";
 import ModalProfile from "../components/ModalProfile";
 import "../css/CardProfil.css";
 import "../css/ModalProfile.css";
+import Footer from "../components/Footer";
 import lightLogo from "../assets/LogoLight.png";
 import leftArrow from "../assets/arrow-left-test.svg";
 import rightArrow from "../assets/arrow-right-test.svg";
-import "../css/CardProfil.css";
-import "../css/ModalProfile.css";
 
 // dataTabUser est une fonction qui retourne un tableau d'objet avec les infos des users 6 par 6
 // qui est passé en props au composant CardProfil, il est le résultat de l'appel API sur le endpoint user
@@ -29,7 +29,23 @@ export default function Pokemain({
   startIndex,
   loading,
   setStartIndex,
+  url,
+  setUrl,
+  filteredUser,
+  filteredUrl,
+  setFilteredUrl,
 }) {
+  const [selected, setSelected] = useState([]);
+  const [dataSelected, setDataSelected] = useState([]);
+  const [dataRepoSelected, setDataRepoSelected] = useState([]);
+  const [langSelected, setLangSelected] = useState([]);
+  const [click, setClick] = useState(false);
+
+  const handleClickProfil = (el) => {
+    setSelected(el);
+    setClick(true);
+  };
+
   const [isVisible, setIsVisible] = useState(false);
   const nextCards = () => {
     if (startIndex + 6 < dataTab.length) {
@@ -53,15 +69,11 @@ export default function Pokemain({
   const getCurrentCards = () => {
     return dataTab.slice(startIndex, startIndex + 6);
   };
-  const [selected, setSelected] = useState([]);
-  const [dataSelected, setDataSelected] = useState([]);
-  const [dataRepoSelected, setDataRepoSelected] = useState([]);
-  const [langSelected, setLangSelected] = useState([]);
-  const [click, setClick] = useState(false);
-  const handleClickProfil = (el) => {
-    setSelected(el);
-    setClick(true);
+  const getCurrentFilter = () => {
+    return filteredUser.slice(startIndex, startIndex + 6);
   };
+  // Fetchs correspondant au profil sélectionné (au click)
+
   useEffect(() => {
     axios
       .get(`https://api.github.com/users/${selected.login}`)
@@ -95,9 +107,16 @@ export default function Pokemain({
     setLangSelected(Array.from(langSet));
   }, [dataRepoSelected]);
 
+  function scrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  }
+  scrollToTop();
   return (
     <div
-      className={`h-[auto] w-[100dvw] bg-gradient-to-b from-indigo-900 backdrop-blur-3xl via-rgba-27-3-199-3615 to-blue-200 xl:pokemain-bg bg-cover bg-center relative ${
+      className={`h-[auto] w-[100dvw] bg-gradient-to-b from-indigo-900 backdrop-blur-3xl via-rgba-27-3-199-3615 to-blue-100 xl:pokemain-bg bg-cover bg-center relative ${
         isVisible ? "backdrop-filter backdrop-blur-lg" : ""
       }`}
     >
@@ -105,38 +124,43 @@ export default function Pokemain({
         <h1 className="font-bold bg-gradient-to-b from-indigo-400 to-purple-600 text-transparent bg-clip-text text-5xl xl:text-left xl:p-5">
           PokeDev
         </h1>
-        <div className="hidden  xl:flex xl:items-center xl:mb-5">
-          <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1 ">
-            <p className="xl:invisible">Lorem</p>
+        <div className="flex items-center mb-5 mt-10 ">
+          <div className="bg-gray-300 w-1/2 h-1 xl:bg-gray-300 xl:w-1/2 xl:h-1 ">
+            <p className="invisible">Lorem</p>
           </div>
 
           <div className="xl:flex 1">
-            <SideBarTop />
+            <SideBarTop
+              url={url}
+              setUrl={setUrl}
+              dataTab={dataTab}
+              filteredUrl={filteredUrl}
+              setFilteredUrl={setFilteredUrl}
+            />
           </div>
-          <div className="xl:bg-gray-300 xl:w-1/2 xl:h-1">
-            <p className="xl:invisible">Lorem</p>
+          <div className="bg-gray-300 w-1/2 h-1 xl:bg-gray-300 xl:w-1/2 xl:h-1">
+            <p className="invisible">Lorem</p>
           </div>
         </div>
       </div>
       <div className="xl:flex xl:flex-wrap xl:w-[100dvw]">
         <div className=" xl:w-[100%] xl:flex">
           <div>
-            {getCurrentCards().length > 0 ? (
+            {getCurrentCards().length ? (
               <CardProfil
                 dataTabUsers={getCurrentCards()}
-                dataGiters={dataGiters}
                 handleClickProfil={handleClickProfil}
+                dataGiters={dataGiters}
+                filteredUser={getCurrentFilter()}
               />
             ) : (
-              <img
-                className=" xl:h-[70%] xl:w-[70%] m-20 "
-                src="src/assets/404.png"
-                alt="erreur 404"
-              />
+              <div className=" xl:h-[auto] xl:w-[100%] m-20 ">
+                <img src="src/assets/404.png" alt="erreur 404" />{" "}
+              </div>
             )}
           </div>
           <div className="w-[100%] flex flex-col justify-center items-center ">
-            <div className="xl:w-[50%] xl:h-[70%] h-[50vh] bg-white text-black">
+            <div className="xl:w-[50%] xl:h-[70%] h-[50vh]text-black">
               <PokedevProfil
                 dataSelected={dataSelected}
                 langSelected={langSelected}
@@ -147,16 +171,17 @@ export default function Pokemain({
                 dataTab={dataTab}
                 lang={lang}
                 dataGiters={dataGiters}
+                setIsVisible={setIsVisible}
               />
               {loading ? (
                 <img src={loadingImg} alt="Loading..." />
               ) : (
                 <div>
-                  <div>
+                  {/* <div>
                     <button type="button" onClick={() => setIsVisible(true)}>
                       Get user
                     </button>
-                  </div>
+                  </div> */}
                   {isVisible && (
                     <ModalProfile
                       dataRepoSelected={dataRepoSelected}
@@ -172,7 +197,7 @@ export default function Pokemain({
                   )}
                 </div>
               )}
-              <div className="flex justify-center gap-7 p-3 xl:hidden">
+              <div className="flex justify-center gap-7 p-3 ">
                 <button onClick={prevCards} type="button">
                   <img
                     src={leftArrow}
@@ -182,7 +207,7 @@ export default function Pokemain({
                 </button>
 
                 <button type="button" onClick={randomCards} className="hidden">
-                  Random
+                  <img src="./src/assets/random-btn.png" alt="random-btn" />
                 </button>
                 <button className=" onClick={nextCards}" type="button">
                   <img
@@ -203,7 +228,7 @@ export default function Pokemain({
               </button>
 
               <button type="button" onClick={randomCards} className="">
-                Random
+                <img src="./src/assets/random-btn.png" alt="random-btn" />
               </button>
               <button onClick={nextCards} type="button">
                 <img
@@ -220,9 +245,8 @@ export default function Pokemain({
       <div className="flex m-5 justify-center xl:hidden">
         <img src={lightLogo} className="w-[39dvw] cursor-pointer" alt="logo" />
       </div>
-      <div className="w-[100dvw] xl:text-blue-800 ">
-        <p>FOOTER</p>
-      </div>
+
+      <Footer />
     </div>
   );
 }
@@ -254,6 +278,31 @@ Pokemain.propTypes = {
     )
   ).isRequired,
   count: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  url: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  setUrl: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  filteredUser: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  filteredUrl: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  setFilteredUrl: PropTypes.arrayOf(
     PropTypes.objectOf(
       PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
     )
