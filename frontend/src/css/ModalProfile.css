@@ -125,7 +125,6 @@ li a {
     justify-content: space-around;
     position: relative;
     align-items: stretch;
-    flex-wrap: ;
   }
 
   @keyframes moveRight {

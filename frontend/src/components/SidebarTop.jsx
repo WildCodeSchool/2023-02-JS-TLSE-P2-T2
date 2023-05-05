@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
 import { Sidebar } from "primereact/sidebar";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
@@ -11,16 +10,60 @@ import FilterCategory from "./FilterCategory";
 
 import DividerResponsive from "./DividerResponsive";
 
-export default function SideBarTop({ dataTab }) {
+export default function SideBarTop({
+  dataTab,
+  url,
+  setUrl,
+  filteredUrl,
+  setFilteredUrl,
+}) {
+  const [displayLocationValue, setdisplayLocationValue] = useState("");
+  const [activeLanguages, setActiveLanguages] = useState([]);
   const [visibleTop, setVisibleTop] = useState(false);
-  const customIcons = <SearchBar dataTab={dataTab} />;
+
+  useEffect(() => {
+    if (
+      url !== "https://api.github.com/search/users?q=" &&
+      filteredUrl !== url
+    ) {
+      setFilteredUrl(url);
+    }
+  }, [filteredUrl, url, setUrl]);
+
+  const handleSearch = () => {
+    const locationValue = document.getElementById("locationValue");
+    if (locationValue && locationValue.innerText.trim() !== "") {
+      const newUrl = `${url}location:${locationValue.innerText}`;
+      setFilteredUrl(newUrl);
+      setUrl("https://api.github.com/search/users?q=");
+    }
+    setVisibleTop(false);
+  };
+
+  const customIcons = (
+    <SearchBar
+      displayLocationValue={displayLocationValue}
+      setdisplayLocationValue={setdisplayLocationValue}
+      dataTab={dataTab}
+    />
+  );
+
+  const handleLogoClick = () => {
+    setActiveLanguages([]);
+    setUrl("https://api.github.com/search/users?q=");
+    setFilteredUrl("https://api.github.com/search/users?q=");
+    setVisibleTop(true);
+  };
 
   return (
     <div className="card">
       <div>
         <button
           className="border-white border-4 rounded-full"
-          onClick={() => setVisibleTop(true)}
+          onClick={() => {
+            setVisibleTop(true);
+            handleLogoClick();
+          }}
           type="button"
         >
           <img
@@ -39,21 +82,28 @@ export default function SideBarTop({ dataTab }) {
         icons={customIcons}
       >
         <div className="filter">
-          <FilterCategory />
+          <FilterCategory
+            activeLanguages={activeLanguages}
+            setActiveLanguages={setActiveLanguages}
+            url={url}
+            setUrl={setUrl}
+          />
           <DividerResponsive />
-          <FilterCategory />
         </div>
         <div className="desktop">
           <Divider />
         </div>
 
         <div className="filter">
-          <FilterCategory />
-
           <DividerResponsive />
-          <FilterCategory />
         </div>
-        <div className="divButtonSearchSideBar">
+        <div className="divButtonSearchSideBar flex justify-between">
+          <div className="flex gap-5">
+            <div
+              id="locationValue"
+              className="text-white text-3xl p-5 rounded-xl border-4 border-red-500 border-solid invisible"
+            />
+          </div>
           <Button
             className="buttonSearchSideBar"
             label="Search"
@@ -62,6 +112,7 @@ export default function SideBarTop({ dataTab }) {
             iconPos="right"
             outlined
             size="small"
+            onClick={handleSearch}
           />
         </div>
       </Sidebar>
@@ -69,15 +120,29 @@ export default function SideBarTop({ dataTab }) {
   );
 }
 SideBarTop.propTypes = {
-  dataTab: PropTypes.shape({
-    avatar_url: "",
-    login: "",
-    name: "",
-    id: "",
-    html_url: "",
-    followers: "",
-    public_repos: "",
-    location: "",
-    updated_at: "",
-  }).isRequired,
+  dataTab: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  url: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  setUrl: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  filteredUrl: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
+  setFilteredUrl: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    )
+  ).isRequired,
 };
