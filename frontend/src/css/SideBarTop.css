@@ -1,0 +1,45 @@
+div.p-sidebar-header {
+  justify-content: space-between;
+}
+.filterAndToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.filterItem {
+  padding: 10px 0px;
+}
+.filter {
+  padding: 10px;
+}
+.desktopDivider {
+  display: none;
+}
+.divButtonSearchSideBar {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .desktopDivider {
+    display: initial;
+  }
+  .mobileDivider {
+    display: none;
+  }
+  .filterAndToggle {
+    justify-content: space-between;
+  }
+  .heightSideBarDesktop {
+    height: 50vh;
+  }
+  .filterCategory {
+    width: 40%;
+    padding-inline: 10px;
+  }
+  .filter {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
